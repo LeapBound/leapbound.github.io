@@ -86,7 +86,7 @@ export default hopeTheme({
       // insert component easily
       // component: true,
 
-      demo: true,
+      demo: false,
 
       // install echarts before enabling it
       // echarts: true,
