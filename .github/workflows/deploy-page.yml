@@ -1,7 +1,7 @@
 name: Build and Deploy Vuepress
 on:
   push:
-    branches: [feature/docs]
+    branches: [main]
 jobs:
   docs:
     name: Deployment
@@ -22,7 +22,7 @@ jobs:
         id: pnpm-install
         with:
           version: 8
-          package_json_file: docs/package.json
+          package_json_file: package.json
           run_install: true
 
       - name: Setup Node.js
@@ -30,37 +30,17 @@ jobs:
         with:
           node-version: 20
 
-#      - name: Get pnpm store directory
-#        id: pnpm-cache
-#        shell: bash
-#        run: |
-#          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-#
-#      - name: Setup pnpm cache
-#        uses: actions/cache@v3
-#        with:
-#          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-#          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-#          restore-keys: |
-#            ${{ runner.os }}-pnpm-store-
-#
-#      - name: Install dependencies
-#        if: steps.pnpm-cache-outputs.cache-hit != 'true'
-#        run: |
-#          pnpm install
-
       - name: Build
         env:
           NODE_OPTIONS: --max_old_space_size=4096
-        working-directory: ./docs
         run: |-
           pnpm docs:build
-          > src/.vuepress/dist/.nojekyll
+          > docs/.vuepress/dist/.nojekyll
 
       - name: Deploy Page to Release
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: docs/src/.vuepress/dist
-          token: ${{ secrets.YC_ACTION_SECRETS }}
+          folder: docs/.vuepress/dist
+          token: ${{ secrets.LEAPBOUND_IO_SECRETS }}
