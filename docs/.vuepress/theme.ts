@@ -16,7 +16,7 @@ export default hopeTheme({
 
   repo: "LeapBound/yucong",
 
-  docsDir: "src",
+  docsDir: "docs",
 
   locales: {
     "/": {
