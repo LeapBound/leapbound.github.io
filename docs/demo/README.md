@@ -6,4 +6,4 @@ category:
   - Guide
 ---
 
-<AutoCatalog />
+- [yc-action-server-example](examples/yc-action-server-example.md)
