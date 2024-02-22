@@ -12,10 +12,20 @@ The advantage of using a groovy script instead of a class is that the methods in
 called at any time, so that you can respond to the continuously added methods of the upper-layer service `function-call`
 at any time.
 
-2.The project uses `redis-stream` as the message queue
+2.`yc-action-server` now is a dependent jar. It can be used in any java project.
 
-3.Configure using `HTTP Interface Client(WebClient)` to write Http client, similar to Spring Cloud OpenFeign, you only
-need to declare the interface to complete the work.
+3.`yc-action-server-example` as a simple example. [README](../../demo/examples/yc-action-server-example.md)
+
+### Change Log
+
+- 2024-02-22
+
+package `yc-action-server` as a dependent jar. And make an example `yc-action-server-example`.[README](../../demo/examples/yc-action-server-example.md)
+
+modify the pom file in `yc-action-server` and make a `AutoConfiguration`.
+
+- First version
+
 
 ### Start Up
 

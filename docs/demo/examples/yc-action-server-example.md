@@ -45,8 +45,8 @@ or you can load jar as
 </dependency>
 ```
 
-2. Configure the `yc-action-server` in your `application.yml`
+2.Configure the `yc-action-server` in your `application.yml`
 
    Here, I use `Apollo` configuration center as an example in `application-apollo.yml`.
 
-3. Then you can do with [yc-action-server/README.md](https://leapbound.github.io/guide/yucong/yc-action-server.html)
+3.Then you can do with [yc-action-server/README.md](../../guide/yucong/yc-action-server.md)
